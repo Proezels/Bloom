@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: snowMat
-  m_Shader: {fileID: -6465566751694194690, guid: 44eee54d2d717004f815b1073916db77, type: 3}
+  m_Name: iceMat
+  m_Shader: {fileID: -6465566751694194690, guid: b78c87e101574cc4aa4b025fa07b8b52, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -20,24 +20,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b14ce79bb01dfa041b2162da52585cc8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _mainNormal:
-        m_Texture: {fileID: 2800000, guid: a84f51e910717c846b60018af840295b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _mainTex:
-        m_Texture: {fileID: 2800000, guid: b14ce79bb01dfa041b2162da52585cc8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _trailMap:
-        m_Texture: {fileID: 8400000, guid: 0dcca3dcce304b7489f0926396f3c33b, type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _trailTex:
-        m_Texture: {fileID: 2800000, guid: 67dc5a5c966eab84d9e5e535f29725c0, type: 3}
+    - _iceTxt:
+        m_Texture: {fileID: 2800000, guid: f23974dce91c7f44cb3adcad6c61c22e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -56,20 +40,17 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _heighMult: 2
-    - _heightMult: 2
-    - _offset: -0.29
-    - _range: 0.18
-    - _snowGloss: 0
-    - _trailBlending: 0.424
-    - _trailGloss: 0
-    - _trailRadius: 0
-    - _trailTiling: 0
+    - _fresnelPower: 0.46
+    - _metallic: 0
+    - _normals: -2.2
+    - _refractionAmount: 1
+    - _smoothness: 1
     m_Colors:
-    - _tiling_offset: {r: -0.25, g: 0.7, b: 5.53, a: 3.09}
-    - _trailColor: {r: 0.00998574, g: 0.21953477, b: 0.31132078, a: 0}
+    - _fresnelColor: {r: 0.8726415, g: 0.8827293, b: 1, a: 0}
+    - _iceColor: {r: 0.7137255, g: 1, b: 0.98039216, a: 0}
+    - _iceTiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &5599769007885915652
+--- !u!114 &6093339994266693176
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

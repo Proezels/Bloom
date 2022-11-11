@@ -8,6 +8,11 @@ public class playerMovement : MonoBehaviour
     public float speed = 12f;
     
     public GameObject aura;
+    public ParticleSystem aoe;
+    public GameObject trail;
+    public Material snow;
+    public float trackDepth;
+    public float deepSnow;
     public bool magic = false;
 
     public GameObject otherPlayer;
@@ -28,17 +33,29 @@ public class playerMovement : MonoBehaviour
     void Start()
     {
     //    anim = gameObject.GetComponent<Animator>();
+        snow.SetFloat("_heightMult", trackDepth);
     }
 
     void Update()
     {
 
         // character movement
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        if (gameObject.name == "Miko")
+        {
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * speed * Time.deltaTime);
+            Vector3 move = transform.right * x + transform.forward * z;
+            controller.Move(move * speed * Time.deltaTime);
+        }
+        else if (gameObject.name == "Lua" && !magic)
+        {
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
+
+            Vector3 move = transform.right * x + transform.forward * z;
+            controller.Move(move * speed * Time.deltaTime);
+        }
         
        // if (controller.velocity != Vector3.zero)
        // {
@@ -57,19 +74,24 @@ public class playerMovement : MonoBehaviour
        // activate aura
        if (gameObject.name == "Lua")
        {
-            if (magic == false)
+            if (!magic)
             {
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     aura.SetActive(true);
+                    aoe.Play();
+                    trail.SetActive(false);
+                    snow.SetFloat("_heightMult", deepSnow);
                     magic = true;
                 }
             }
             else 
             {
-                if (Input.GetKeyDown(KeyCode.F))
+                if (!aoe.isPlaying)
                 {
                     aura.SetActive(false);
+                    trail.SetActive(true);
+                    snow.SetFloat("_heightMult", trackDepth);
                     magic = false;
                 }
             }
