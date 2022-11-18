@@ -40,13 +40,18 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _bottom: 0
+    - _fade: 54.79945
+    - _fadeNoise: 200
     - _fresnelPower: 0.46
     - _metallic: 0
-    - _normals: -2.2
-    - _refractionAmount: 1
+    - _normals: -0.46
+    - _origin: 1.5
+    - _refractionAmount: 0.01
     - _smoothness: 1
+    - _top: 0.5
     m_Colors:
-    - _fresnelColor: {r: 0.8726415, g: 0.8827293, b: 1, a: 0}
+    - _fresnelColor: {r: 0.5909576, g: 0.612985, b: 0.9433962, a: 0}
     - _iceColor: {r: 0.7137255, g: 1, b: 0.98039216, a: 0}
     - _iceTiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

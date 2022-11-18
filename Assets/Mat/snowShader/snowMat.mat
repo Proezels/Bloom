@@ -57,7 +57,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _heighMult: 2
-    - _heightMult: 2
+    - _heightMult: 0
     - _offset: -0.29
     - _range: 0.18
     - _snowGloss: 0
@@ -66,6 +66,7 @@ Material:
     - _trailRadius: 0
     - _trailTiling: 0
     m_Colors:
+    - _snowDirection: {r: 0, g: 1, b: 0, a: 0}
     - _tiling_offset: {r: -0.25, g: 0.7, b: 5.53, a: 3.09}
     - _trailColor: {r: 0.00998574, g: 0.21953477, b: 0.31132078, a: 0}
   m_BuildTextureStacks: []

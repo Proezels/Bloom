@@ -9,11 +9,14 @@ public class playerMovement : MonoBehaviour
     
     public GameObject aura;
     public ParticleSystem aoe;
+    public GameObject endFX;
     public GameObject trail;
     public Material snow;
     public float trackDepth;
     public float deepSnow;
     public bool magic = false;
+    private bool  endable = false;
+    public static bool ending = false;
 
     public GameObject otherPlayer;
     public GameObject cam;
@@ -22,6 +25,7 @@ public class playerMovement : MonoBehaviour
     public bool nearTablet = false;
 
     public bool pieceCollected = false;
+    public bool tabletFixed = false;
     public GameObject MikoPiece;
     
     private Animator anim;
@@ -74,24 +78,18 @@ public class playerMovement : MonoBehaviour
        // activate aura
        if (gameObject.name == "Lua")
        {
-            if (!magic)
+            if (!magic && !endable)
             {
-                if (Input.GetKeyDown(KeyCode.F))
-                {
-                    aura.SetActive(true);
-                    aoe.Play();
-                    trail.SetActive(false);
-                    snow.SetFloat("_heightMult", deepSnow);
-                    magic = true;
-                }
+                springMagic();
             }
             else 
             {
-                if (!aoe.isPlaying)
+                if (!aoe.isPlaying && !endable)
                 {
                     aura.SetActive(false);
                     trail.SetActive(true);
                     snow.SetFloat("_heightMult", trackDepth);
+                    icicleFade.fading = false;
                     magic = false;
                 }
             }
@@ -133,11 +131,39 @@ public class playerMovement : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    Debug.Log("you won!");
+                    tabletFixed = true;
                 }
+                if (tabletFixed)
+                {
+                    endable = true;
+                }
+                if (tabletFixed &&  Input.GetKeyDown(KeyCode.F))
+                {
+                    ending = true;
+                    snow.SetFloat("_heightMult", deepSnow);
+                    endFX.SetActive(true);
+                    trail.SetActive(false);
+                    
+                }
+            }
+            else if (!nearTablet)
+            {
+                endable = false;
             }
         }
        
+    }
+
+    void springMagic()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+                {
+                    aura.SetActive(true);
+                    aoe.Play();
+                    trail.SetActive(false);
+                    snow.SetFloat("_heightMult", deepSnow);
+                    magic = true;
+                }
     }
 
     void stopAnim()
