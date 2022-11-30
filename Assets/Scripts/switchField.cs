@@ -11,12 +11,12 @@ public class switchField : MonoBehaviour
     {
         if (other.name == "Miko")
         {
-            Miko.GetComponent<playerMovement>().nearLua = true;
+            Miko.GetComponent<MikoScript>().nearLua = true;
         }
         if (other.tag == "tablet")
         {
             Debug.Log("tablet");
-            Lua.GetComponent<playerMovement>().nearTablet = true;
+            Lua.GetComponent<LuaScript>().nearTablet = true;
         }
     }
 
@@ -24,12 +24,12 @@ public class switchField : MonoBehaviour
     {
         if (other.name == "Miko")
         {
-            Miko.GetComponent<playerMovement>().nearLua = false;
+            Miko.GetComponent<MikoScript>().nearLua = false;
         }
 
         if (other.tag == "tablet")
         {
-            Lua.GetComponent<playerMovement>().nearTablet = false;
+            Lua.GetComponent<LuaScript>().nearTablet = false;
         }
     }
 

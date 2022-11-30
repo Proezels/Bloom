@@ -57,7 +57,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _heighMult: 2
-    - _heightMult: 0
+    - _heightMult: 20
     - _offset: -0.29
     - _range: 0.18
     - _snowGloss: 0

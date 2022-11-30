@@ -30,7 +30,7 @@ public class interactable : MonoBehaviour
 
     void collect()
     {
-        player.GetComponent<playerMovement>().pieceCollected = true;
+        player.GetComponent<MikoScript>().pieceCollected = true;
         MikoPiece.SetActive(true);
         
         Destroy(gameObject);

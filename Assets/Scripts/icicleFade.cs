@@ -36,7 +36,7 @@ public class icicleFade : MonoBehaviour
             mat.SetFloat("_fade", fadeTimer);
             solid();
         }
-        if (playerMovement.ending && iceMat != null)
+        if (LuaScript.ending && iceMat != null)
         {
             Destroy(underMat);
             iceMat.SetFloat("_fade", endTimer);
