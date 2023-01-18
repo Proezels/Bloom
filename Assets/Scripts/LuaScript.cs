@@ -13,6 +13,7 @@ public class LuaScript : MonoBehaviour
     public GameObject trail;
     public Material snow;
     public GameObject grass;
+    public GameObject miniGrass;
     public float trackDepth;
     public float deepSnow;
     public bool magic = false;
@@ -24,10 +25,13 @@ public class LuaScript : MonoBehaviour
     public GameObject otherCam;
     public bool nearTablet = false;
 
+    public GameObject tablet;
+    public GameObject brokenTablet;
     public bool pieceCollected = false;
     public bool tabletFixed = false;
     
     private Animator anim;
+    private Animator MikoAnim;
 
     //public AudioClip[] footsteps;
     //public float stepTimer = 0f;
@@ -35,12 +39,14 @@ public class LuaScript : MonoBehaviour
     
     void Start()
     {
-    //  anim = gameObject.GetComponent<Animator>();
+        anim = gameObject.GetComponent<Animator>();
+        MikoAnim = otherPlayer.GetComponent<Animator>();
         snow.SetFloat("_heightMult", trackDepth);
     }
 
     void Update()
     {
+        Debug.Log(controller.velocity);
 
         // character movement
         if (!magic)
@@ -52,20 +58,19 @@ public class LuaScript : MonoBehaviour
             controller.Move(move * speed * Time.deltaTime);
         }
         
-       // if (controller.velocity != Vector3.zero)
-       // {
-       //     stepTimer = stepTimer + 1f;
-       //     if (stepTimer >= stepSpeed)
-       //     {
-       //         steps();
-       //         stepTimer = 0f;
-       //     }
-       // }
-       // else if (controller.velocity == Vector3.zero)
-       // {
-       //     stepTimer = 0f;
-       // }
+        if (controller.velocity != Vector3.zero && !magic)
+        {
+            anim.SetBool("move", true);
+            MikoAnim.SetBool("move", true);
+
+        }
+        else if (controller.velocity == Vector3.zero)
+        {
+            anim.SetBool("move", false);
+            MikoAnim.SetBool("move", false);
+        }
        
+
        // activate aura
 
         if (!magic && !endable)
@@ -80,6 +85,7 @@ public class LuaScript : MonoBehaviour
                 trail.SetActive(true);
                 snow.SetFloat("_heightMult", trackDepth);
                 icicleFade.fading = false;
+                miniGrass.SetActive(false);
                 magic = false;
             }
         }
@@ -99,6 +105,8 @@ public class LuaScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                brokenTablet.SetActive(false);
+                tablet.SetActive(true);
                 tabletFixed = true;
             }
             if (tabletFixed)
@@ -127,6 +135,7 @@ public class LuaScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
                 {
                     aura.SetActive(true);
+                    miniGrass.SetActive(true);
                     aoe.Play();
                     trail.SetActive(false);
                     snow.SetFloat("_heightMult", deepSnow);

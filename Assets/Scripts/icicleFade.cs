@@ -87,7 +87,7 @@ public class icicleFade : MonoBehaviour
             if (timer == 100)
             {
                 fadeTimer = fadeTimer +0.05f;
-                endTimer = endTimer + 0.05f;
+                endTimer = endTimer + 0.1f;
                 timer = 90f;
             }
         }

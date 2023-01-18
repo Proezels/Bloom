@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: snowMat
-  m_Shader: {fileID: -6465566751694194690, guid: 44eee54d2d717004f815b1073916db77, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: e69a4e2c5ee463143b086b952eb57f2b, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -21,23 +21,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b14ce79bb01dfa041b2162da52585cc8, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _mainNormal:
-        m_Texture: {fileID: 2800000, guid: a84f51e910717c846b60018af840295b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _mainTex:
-        m_Texture: {fileID: 2800000, guid: b14ce79bb01dfa041b2162da52585cc8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _trailMap:
-        m_Texture: {fileID: 8400000, guid: 0dcca3dcce304b7489f0926396f3c33b, type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _trailTex:
-        m_Texture: {fileID: 2800000, guid: 67dc5a5c966eab84d9e5e535f29725c0, type: 3}
+    - _snowTex:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -56,21 +44,11 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _heighMult: 2
-    - _heightMult: 20
-    - _offset: -0.29
-    - _range: 0.18
-    - _snowGloss: 0
-    - _trailBlending: 0.424
-    - _trailGloss: 0
-    - _trailRadius: 0
-    - _trailTiling: 0
+    - _snowOpacity: 0.5
     m_Colors:
     - _snowDirection: {r: 0, g: 1, b: 0, a: 0}
-    - _tiling_offset: {r: -0.25, g: 0.7, b: 5.53, a: 3.09}
-    - _trailColor: {r: 0.00998574, g: 0.21953477, b: 0.31132078, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &5599769007885915652
+--- !u!114 &4984205533005168120
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

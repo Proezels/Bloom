@@ -41,7 +41,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _bottom: 0
-    - _fade: 19.149994
+    - _fade: 0
     - _fadeNoise: 200
     - _fresnelPower: 0.46
     - _metallic: 0

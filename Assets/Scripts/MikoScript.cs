@@ -25,7 +25,7 @@ public class MikoScript : MonoBehaviour
     
     void Start()
     {
-    //  anim = gameObject.GetComponent<Animator>();
+        anim = gameObject.GetComponent<Animator>();
     }
 
     void Update()
@@ -40,32 +40,28 @@ public class MikoScript : MonoBehaviour
         controller.Move(move * speed * Time.deltaTime);
 
         
-       // if (controller.velocity != Vector3.zero)
-       // {
-       //     stepTimer = stepTimer + 1f;
-       //     if (stepTimer >= stepSpeed)
-       //     {
-       //         steps();
-       //         stepTimer = 0f;
-       //     }
-       // }
-       // else if (controller.velocity == Vector3.zero)
-       // {
-       //     stepTimer = 0f;
-       // }
+       if (controller.velocity != Vector3.zero)
+        {
+            anim.SetBool("move", true);
+        }
+        else if (controller.velocity == Vector3.zero)
+        {
+            anim.SetBool("move", false);
+        }
 
        //switch players 
             
-        if (nearLua == true)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                otherPlayer.GetComponent<LuaScript>().enabled = true;
-                otherCam.SetActive(true);
-                gameObject.GetComponent<MikoScript>().enabled = false;
-                cam.SetActive(false);
-            }
-
+            otherPlayer.GetComponent<LuaScript>().enabled = true;
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+            otherCam.SetActive(true);
+            gameObject.GetComponent<MikoScript>().enabled = false;
+            cam.SetActive(false);
+        }
+        
+        if (nearLua)
+        {
             //give tablet piece to Lua
             if (pieceCollected == true)
             {
