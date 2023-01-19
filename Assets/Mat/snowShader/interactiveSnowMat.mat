@@ -73,7 +73,7 @@ Material:
     - _glitterScale: 300
     - _glitterSpeed: 0.01
     - _heighMult: 2
-    - _heightMult: 20
+    - _heightMult: 2
     - _offset: -0.29
     - _range: 0.18
     - _snowGloss: 0

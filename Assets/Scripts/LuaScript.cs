@@ -31,7 +31,7 @@ public class LuaScript : MonoBehaviour
     public bool tabletFixed = false;
     
     private Animator anim;
-    private Animator MikoAnim;
+    public GameObject LuaModel;
 
     //public AudioClip[] footsteps;
     //public float stepTimer = 0f;
@@ -39,18 +39,16 @@ public class LuaScript : MonoBehaviour
     
     void Start()
     {
-        anim = gameObject.GetComponent<Animator>();
-        MikoAnim = otherPlayer.GetComponent<Animator>();
+        anim = LuaModel.GetComponent<Animator>();
         snow.SetFloat("_heightMult", trackDepth);
+        ending = false;
     }
 
     void Update()
     {
-        Debug.Log(controller.velocity);
-
-        // character movement
         if (!magic)
         {
+            // character movement
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
 
@@ -61,13 +59,11 @@ public class LuaScript : MonoBehaviour
         if (controller.velocity != Vector3.zero && !magic)
         {
             anim.SetBool("move", true);
-            MikoAnim.SetBool("move", true);
 
         }
         else if (controller.velocity == Vector3.zero)
         {
             anim.SetBool("move", false);
-            MikoAnim.SetBool("move", false);
         }
        
 
@@ -94,6 +90,7 @@ public class LuaScript : MonoBehaviour
             
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            anim.SetBool("move", false);
             otherPlayer.GetComponent<MikoScript>().enabled = true;
             otherCam.SetActive(true);
             gameObject.GetComponent<LuaScript>().enabled = false;

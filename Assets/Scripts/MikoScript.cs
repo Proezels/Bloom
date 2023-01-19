@@ -54,7 +54,6 @@ public class MikoScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             otherPlayer.GetComponent<LuaScript>().enabled = true;
-            gameObject.GetComponent<CapsuleCollider>().enabled = false;
             otherCam.SetActive(true);
             gameObject.GetComponent<MikoScript>().enabled = false;
             cam.SetActive(false);

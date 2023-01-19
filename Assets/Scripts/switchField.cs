@@ -15,7 +15,6 @@ public class switchField : MonoBehaviour
         }
         if (other.tag == "tablet")
         {
-            Debug.Log("tablet");
             Lua.GetComponent<LuaScript>().nearTablet = true;
         }
     }
