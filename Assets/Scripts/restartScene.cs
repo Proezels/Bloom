@@ -5,11 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class restartScene : MonoBehaviour
 {
+    public GameObject canvas;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 
@@ -17,7 +24,7 @@ public class restartScene : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            canvas.SetActive(true);
         }
     }
 }
