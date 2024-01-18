@@ -44,6 +44,10 @@ Material:
     - _BladeWidthMin: 0.1
     - _GrassFalloff: 0.099
     - _GrassThreshold: 0.099
+    - _PowerHeightMax: 0.2
+    - _PowerHeightMin: 0.1
+    - _StandardMaxHeight: 0.2
+    - _StandardMinHeight: 0.1
     - _TessellationGrassDistance: 0.01
     - _WindFrequency: 0.007
     m_Colors:

@@ -45,7 +45,8 @@ public class LuaScript : MonoBehaviour
     }
 
     void Update()
-    {
+    { 
+
         if (!magic)
         {
             // character movement
